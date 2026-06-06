@@ -12,6 +12,7 @@ apps/
   commandboard-web   PWA shell
 packages/
   cli                commandboard/cb command line client
+  commandboard-mcp   @profullstack/commandboard-mcp product MCP server
   tui                terminal UI
   schemas            LogicSRC JSON schemas consumed by the product
   validators         schema validation utilities
@@ -29,6 +30,8 @@ npm install
 npm run check
 npm --workspace @logicsrc/commandboard-web run dev
 npm --workspace @logicsrc/cli run dev -- tui
+npm --workspace @profullstack/commandboard-mcp run build
+node packages/commandboard-mcp/dist/index.js
 ```
 
 ## Production
@@ -39,3 +42,8 @@ npm start
 ```
 
 The production server serves the CommandBoard.run PWA at `/` and the reference API under `/api/*`.
+
+## MCP
+
+CommandBoard.run exposes a product-focused MCP server as `@profullstack/commandboard-mcp`.
+It provides resources for boards, tasks, and plugin status, plus tools and prompts for task and board workflows.
